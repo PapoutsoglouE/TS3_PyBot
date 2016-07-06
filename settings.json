@@ -8,6 +8,7 @@
 	"bot ID": "gote1ID",
 	"scripts": [
 		"HelpBot",
+		"EightBall",
 		"CleverBot",
 		"ButtBot"
 	]
