@@ -5,7 +5,6 @@
 	"host": "127.0.0.1",
 	"port": "10011",
 	"serverID": 1,
-	"bot ID": "gote1ID",
 	"scripts": [
 		"HelpBot",
 		"EightBall",
