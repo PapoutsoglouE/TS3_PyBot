@@ -7,20 +7,23 @@ class ButtBot(AbstractScript):
 	p = 0.05  # probability of word replacement
 	helpstring = """
 	[b]ButtBot[/b]
-	\tChance of replacing a random word in a posted message with [i]butt[/i].
+	\tChance ([i]p[/i]) of replacing a random word in a posted message with [i]butt[/i].
+	\tCurrently [i]p = """ + str(p) + """[/i].
 	"""
+	
 	
 	def react(self, event):
 		""" Act. True if there is a message to send, 
 		False otherwise, followed by the actual string. """
-		m = event["msg"]
-		x = random.random()
-		if x < self.p:
-			word = m.split()
-			i = random.randrange(len(word))
-			word[i] = "butt"
-			new_message = " ".join(word)
-			return new_message
+		if "msg" in event:
+			m = event["msg"]
+			x = random.random()
+			if x < self.p:
+				word = m.split()
+				i = random.randrange(len(word))
+				word[i] = "butt"
+				new_message = " ".join(word)
+				return new_message
 			
 		return False
 			

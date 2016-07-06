@@ -6,6 +6,7 @@ import importlib
 
 class HelpBot(AbstractScript):
 	name = "HelpBot"
+	trigger = ".help"
 	helpstring = """
 	[b]HelpBot[/b]
 	\tShows information about running scripts.
@@ -14,6 +15,7 @@ class HelpBot(AbstractScript):
 	\t.help helpbot
 	\t.help
 	"""
+	
 	
 	def __init__(self):
 		self.hstrings = dict()
@@ -33,16 +35,17 @@ class HelpBot(AbstractScript):
 	def react(self, event):
 		""" Act. True if there is a message to send, 
 		False otherwise, followed by the actual string. """
-		m = event["msg"].strip().lower()
-		m = ' '.join(m.split())
-		if m[0:6] == ".help ":
-			botname = m[6:]
-			if botname in self.hstrings:
-				return self.hstrings[botname]
-		elif m == ".help":
-			running_scripts = self.scripts
-			return """
-			[b]Running scripts:[/b] """ + ", ".join(self.scripts)
+		if "msg" in event:
+			m = event["msg"].strip().lower()
+			m = ' '.join(m.split())
+			if m[0:6] == self.trigger + " ":
+				botname = m[6:]
+				if botname in self.hstrings:
+					return self.hstrings[botname]
+			elif m == self.trigger:
+				running_scripts = self.scripts
+				return """
+				[b]Running scripts:[/b] """ + ", ".join(self.scripts)
 
 		return False
 			
