@@ -43,7 +43,7 @@ class EightBall(AbstractScript):
 		False otherwise, followed by the actual string. """
 		if "msg" in event:
 			m = event["msg"]
-			if m[:7].lstrip().lower() == ".8ball ":
+			if m[:7].lstrip().lower() == self.trigger + " ":
 				return random.choice(self.replies)
 				
 		

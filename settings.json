@@ -9,6 +9,7 @@
 	"scripts": [
 		"HelpBot",
 		"EightBall",
+		"QuoteBot",
 		"CleverBot",
 		"ButtBot"
 	]
