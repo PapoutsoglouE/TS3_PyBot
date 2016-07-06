@@ -89,8 +89,8 @@ class QuoteBot(AbstractScript):
                                     rem_id + "]: " + q)
 
                     elif parts[1] == "count":
-                        return "[b]QuoteBot[/b]: " +
-                                str(len(quote_IDs)) + " quotes found."
+                        return ("[b]QuoteBot[/b]: " +
+                                str(len(quote_IDs)) + " quotes found.")
 
                     elif len(parts) == 2:
                         # example command: .quote 5
