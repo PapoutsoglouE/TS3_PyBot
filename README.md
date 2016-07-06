@@ -2,7 +2,7 @@
 A simple bot for TeamSpeak 3 written in Python.
 
 ## Use
-Just run [`TS3_PyBot.py`]().
+Just run [`TS3_PyBot.py`](https://github.com/PapoutsoglouE/TS3_PyBot/blob/master/TS3_PyBot.py).
 
 ```sh
 python TS3_PyBot.py
@@ -38,7 +38,7 @@ The trigger word for each script is defined in its respective file, through the 
 | Script | Trigger | Description |
 |--------|----------|-------------|
 | [`ButtBot`](https://github.com/PapoutsoglouE/TS3_PyBot/blob/master/lib/ButtBot.py) | - | Replaces a random word in a posted text message with <i>butt</i>. |
-| [`CleverBot`](https://github.com/PapoutsoglouE/TS3_PyBot/blob/master/lib/CleverBot.py) | `gote` | Chat with [Cleverbot](). |
+| [`CleverBot`](https://github.com/PapoutsoglouE/TS3_PyBot/blob/master/lib/CleverBot.py) | `gote` | Chat with [Cleverbot](https://www.cleverbot.com/). |
 | [`EightBall`](https://github.com/PapoutsoglouE/TS3_PyBot/blob/master/lib/EightBall.py) | `.8ball` | The 8ball will answer one question. | 
 | [`HelpBot`](https://github.com/PapoutsoglouE/TS3_PyBot/blob/master/lib/HelpBot.py) | `.help` | Get help about running scripts. |
 | [`QuoteBot`](https://github.com/PapoutsoglouE/TS3_PyBot/blob/master/lib/QuoteBot.py) | `.quote` | Add, remove, access your quotes. | 
