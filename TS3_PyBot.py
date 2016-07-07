@@ -12,6 +12,7 @@ class Bot:
         """ Initialise connection to TS server. """
         with open("settings.json") as f:
             self.settings = json.load(f)
+        self.muted = False
         self._import_scripts()
         self._connect_to_server()
         self.tsconn.clientupdate(client_nickname=self.settings["name"])
@@ -66,8 +67,25 @@ class Bot:
             try:
                 self.tsconn.send_keepalive()
                 event = self.tsconn.wait_for_event(timeout=540)
+                
+                # Administrative commands: .mute, .unmute, .kick.
+                if "msg" in event[0]:
+                    m = event[0]["msg"].strip().lower()
+                    if m == ".kick":
+                        if not self.muted:
+                            self.tsconn.sendtextmessage(targetmode=2,
+                                                        target=1, 
+                                                        msg="Bye bye.")
+                        self.tsconn.logout()
+                        print("Bot has been kicked.")
+                        exit()
+                    elif m == ".mute":
+                        self.muted = True
+                    elif m == ".unmute":
+                        self.muted = False
                 # print(event[0])
-                self._react_to_event(event[0])
+                if not self.muted:
+                    self._react_to_event(event[0])
 
             except ts3.query.TS3TimeoutError:
                 pass

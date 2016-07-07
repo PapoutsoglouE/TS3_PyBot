@@ -37,6 +37,9 @@ The trigger word for each script is defined in its respective file, through the 
 
 | Script | Trigger | Description |
 |--------|----------|-------------|
+| - | `.mute` | Mute bot. |
+| - | `.unmute` | Unmute bot. |
+| - | `.kick` | Kick bot from server. |
 | [`ButtBot`](https://github.com/PapoutsoglouE/TS3_PyBot/blob/master/lib/ButtBot.py) | - | Replaces a random word in a posted text message with <i>butt</i>. |
 | [`CleverBot`](https://github.com/PapoutsoglouE/TS3_PyBot/blob/master/lib/CleverBot.py) | `gote` | Chat with [Cleverbot](https://www.cleverbot.com/). |
 | [`EightBall`](https://github.com/PapoutsoglouE/TS3_PyBot/blob/master/lib/EightBall.py) | `.8ball` | The 8ball will answer one question. | 

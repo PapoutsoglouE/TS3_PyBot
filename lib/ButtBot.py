@@ -33,18 +33,11 @@ class ButtBot(AbstractScript):
                         new_p = float(word[2])
                         if 0.0 <= new_p <= 1.0:
                             self.p = new_p
-                            self.helpstring = """
-                                [b]ButtBot[/b]
-                                \tChance of replacing a random word in a message with [i]butt[/i].
-                                \tCurrently [i]p = """ + str(self.p) + """[/i].
-                                """
-                            print("success")
                             return True
                         else:
                             return False
                     except ValueError:
                         pass
-                        print("fail")
 
                 elif word[1].lower() == "get" and len(word) == 2:
                     result = "[b]Buttbot:[/b] p = " + str(self.p)
