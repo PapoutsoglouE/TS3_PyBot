@@ -2,7 +2,7 @@
 	"name": "Gote",
 	"username": "ServerQuery",
 	"password": "eNbJi1an",
-	"host": "127.0.0.1",
+	"host": "localhost",
 	"port": "10011",
 	"serverID": 1,
 	"scripts": [
@@ -10,6 +10,8 @@
 		"EightBall",
 		"QuoteBot",
 		"CleverBot",
+		"BenisBot",
+		"ReplyBot",
 		"ButtBot"
 	]
 }

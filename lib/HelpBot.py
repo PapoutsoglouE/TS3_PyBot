@@ -51,8 +51,8 @@ class HelpBot(AbstractScript):
             elif m == self.trigger:
                 result = ("""
                     [b]Running scripts:[/b] """ + ", ".join(self.scripts) + """.
-                    Administrative commands: .mute, .unmute, .kick.             
-                    """
+                    [b]Administrative commands:[/b] .mute, .unmute, .kick.
+                    """)
                 conn.sendtextmessage(targetmode=2,
                                      target=1, 
                                      msg=result)

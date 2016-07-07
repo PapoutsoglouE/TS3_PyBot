@@ -45,4 +45,7 @@ The trigger word for each script is defined in its respective file, through the 
 | [`EightBall`](https://github.com/PapoutsoglouE/TS3_PyBot/blob/master/lib/EightBall.py) | `.8ball` | The 8ball will answer one question. | 
 | [`HelpBot`](https://github.com/PapoutsoglouE/TS3_PyBot/blob/master/lib/HelpBot.py) | `.help` | Get help about running scripts. |
 | [`QuoteBot`](https://github.com/PapoutsoglouE/TS3_PyBot/blob/master/lib/QuoteBot.py) | `.quote` | Add, remove, access your quotes. | 
+| [`ReplyBot`]() | many | Reply to certain keywords. |
+| [`BenisBot`]() | .benis | Benisify a phrase. |
+
 
