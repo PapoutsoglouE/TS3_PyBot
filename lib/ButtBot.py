@@ -1,5 +1,6 @@
 #! /usr/bin/env python
 from .AbstractScript import AbstractScript
+import ts3
 import random
 
 
@@ -13,7 +14,7 @@ class ButtBot(AbstractScript):
     """
 
 
-    def react(self, event):
+    def react(self, event, conn):
         """ Act. True if there is a message to send,
         False otherwise, followed by the actual string. """
         if "msg" in event:
@@ -23,7 +24,9 @@ class ButtBot(AbstractScript):
                 word = m.split()
                 i = random.randrange(len(word))
                 word[i] = "butt"
-                new_message = " ".join(word)
-                return new_message
+                result = " ".join(word)
+                conn.sendtextmessage(targetmode=2, target=1,
+                                     msg=result)
+                return True
 
         return False

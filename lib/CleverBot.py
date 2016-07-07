@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 from .AbstractScript import AbstractScript
+import ts3
 from cleverbot import Cleverbot
 import re
 
@@ -22,7 +23,7 @@ class CleverBot(AbstractScript):
         self.cb = Cleverbot()
 
 
-    def react(self, event):
+    def react(self, event, conn):
         """ Act. False if there is no message to send,
         string message otherwise. """
         if "msg" in event:
@@ -31,6 +32,9 @@ class CleverBot(AbstractScript):
             if self.trigger.lower() in m.lower():
                 rem_trigger = re.compile(r"\b(" + self.trigger + r")\b",
                                          flags=re.IGNORECASE)
-                answer = self.cb.ask(rem_trigger.sub("", m))
-                return answer
+                result = self.cb.ask(rem_trigger.sub("", m))
+                conn.sendtextmessage(targetmode=2,
+                                     target=1, 
+                                     msg=result)
+                return True
         return False

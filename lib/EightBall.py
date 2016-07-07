@@ -1,5 +1,6 @@
 #! /usr/bin/env python
 from .AbstractScript import AbstractScript
+import ts3
 import random
 
 
@@ -38,9 +39,13 @@ class EightBall(AbstractScript):
     ]
 
 
-    def react(self, event):
+    def react(self, event, conn):
         """ Return the answer of the 8ball. """
         if "msg" in event:
             m = event["msg"]
             if m[:7].lstrip().lower() == self.trigger + " ":
-                return random.choice(self.replies)
+                result = random.choice(self.replies)
+                conn.sendtextmessage(targetmode=2, target=1,
+                                     msg=result)
+                return True
+        return False

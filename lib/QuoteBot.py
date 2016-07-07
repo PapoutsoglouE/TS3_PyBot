@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 from .AbstractScript import AbstractScript
+import ts3
 import json
 import os
 import random
@@ -34,7 +35,7 @@ class QuoteBot(AbstractScript):
                 json.dump({}, f)
 
 
-    def react(self, event):
+    def react(self, event, conn):
         """ Act. False if there is no message to send,
         string message otherwise. """
         if "msg" in event:
@@ -55,9 +56,13 @@ class QuoteBot(AbstractScript):
                         # example command: .quote
                         # return random quote
                         if not quotes:
-                            return "[b]QuoteBot[/b]: No quotes found."
+                            result =  "[b]QuoteBot[/b]: No quotes found."
                         else:
-                            return random.choice(list(quotes.values()))
+                            result =  random.choice(list(quotes.values()))
+
+                        conn.sendtextmessage(targetmode=2, target=1,
+                                             msg=result)
+                        return True
 
                     elif parts[1] == "add" and len(parts) > 2:
                         # example command: .quote add test
@@ -68,7 +73,11 @@ class QuoteBot(AbstractScript):
                         quotes[highest_key + 1] = new
                         json.dump(quotes, f, indent=4)
                         f.seek(0)
-                        return False
+                        result =  ("[b]QuoteBot[/b]: quote #" + 
+                                   str(highest_key + 1) + " added.")
+                        conn.sendtextmessage(targetmode=2, target=1,
+                                             msg=result)
+                        return True
 
                     elif parts[1] == "remove" and len(parts) > 2:
                         # example command: .quote remove 3
@@ -85,19 +94,28 @@ class QuoteBot(AbstractScript):
                             json.dump(quotes, f, indent=4)
                             f.truncate()
                             f.seek(0)
-                            return ("[b]QuoteBot[/b]: Removed quote [" +
-                                    rem_id + "]: " + q)
+                            result = ("[b]QuoteBot[/b]: Removed quote [" +
+                                      rem_id + "]: " + q)
+                            conn.sendtextmessage(targetmode=2, target=1,
+                                                 msg=result)
+                            return True
 
                     elif parts[1] == "count":
-                        return ("[b]QuoteBot[/b]: " +
-                                str(len(quote_IDs)) + " quotes found.")
+                        result =  ("[b]QuoteBot[/b]: " +
+                                   str(len(quote_IDs)) + " quotes found.")
+                        conn.sendtextmessage(targetmode=2, target=1,
+                                             msg=result)
+                        return True
 
                     elif len(parts) == 2:
                         # example command: .quote 5
                         # display quote with ID=5
                         # ID of quote is in parts[1]
                         if parts[1] in quote_IDs:
-                            return (quotes[parts[1]])
+                            result = quotes[parts[1]]
+                            conn.sendtextmessage(targetmode=2, target=1,
+                                                 msg=result)
+                            return True
 
         return False
 

@@ -19,7 +19,7 @@ class AbstractScript(object):
 
 
     @abstractmethod
-    def react(self, event):
+    def react(self, event, conn):
         """ Act. False if there is no message to send,
         string message otherwise. """
         return False

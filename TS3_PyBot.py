@@ -29,6 +29,7 @@ class Bot:
 
         # Register for events
         self.tsconn.servernotifyregister(event="server")
+        #self.tsconn.servernotifyregister(id_=1, event="textchannel")
         self.tsconn.servernotifyregister(id_=1, event="textchannel")
         print("Connected to server at " +
               self.settings["host"] + ":" + self.settings["port"])
@@ -53,10 +54,7 @@ class Bot:
             given message event. Priority can be defined in the settings file:
             scripts higher on the list have higher priority. """
         for s in self.scripts:
-            reaction = s.react(event)
-            if reaction:
-                self.tsconn.sendtextmessage(targetmode=2,
-                                            target=1, msg=reaction)
+            if s.react(event, self.tsconn):
                 return
 
 

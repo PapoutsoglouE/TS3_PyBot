@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 from .AbstractScript import AbstractScript
+import ts3
 import json
 import importlib
+
 
 
 class HelpBot(AbstractScript):
@@ -32,7 +34,7 @@ class HelpBot(AbstractScript):
                     print("Failed to get help string for " + s)
 
 
-    def react(self, event):
+    def react(self, event, conn):
         """ Act. True if there is a message to send,
         False otherwise, followed by the actual string. """
         if "msg" in event:
@@ -41,10 +43,17 @@ class HelpBot(AbstractScript):
             if m[0:6] == self.trigger + " ":
                 botname = m[6:]
                 if botname in self.hstrings:
-                    return self.hstrings[botname]
+                    conn.sendtextmessage(targetmode=2,
+                                         target=1, 
+                                         msg=self.hstrings[botname])
+                    return True
+
             elif m == self.trigger:
-                running_scripts = self.scripts
-                return """
-                [b]Running scripts:[/b] """ + ", ".join(self.scripts)
+                result = """
+                    [b]Running scripts:[/b] """ + ", ".join(self.scripts)
+                conn.sendtextmessage(targetmode=2,
+                                     target=1, 
+                                     msg=result)
+                return True
 
         return False
