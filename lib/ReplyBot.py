@@ -15,6 +15,7 @@ class ReplyBot(AbstractScript):
     \tffs
     \tD:
     \t:3
+    \tcontract
     """
 
     # p = -1 means random choice from list
@@ -23,6 +24,7 @@ class ReplyBot(AbstractScript):
         "ffs": {"reply": [r"(╯°□°)╯︵ ┻━┻"], "p": 0.9},
         "D:": {"reply": [r"C:"], "p": 1},
         "hi5": {"reply": [r"(。^_・)ノ"], "p": 1},
+        "contract": {"reply": [r"／人◕ ‿‿ ◕人＼"], "p": 0.9},
         "<3": {"reply": [r"</3", r"< 3"], "p": -0.8},
         ":3": {"reply": [r":|", r">: 3"], "p": -0.7}
         #"": {"reply": [r""], "p": },

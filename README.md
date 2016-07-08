@@ -47,5 +47,6 @@ The trigger word for each script is defined in its respective file, through the 
 | [`QuoteBot`](https://github.com/PapoutsoglouE/TS3_PyBot/blob/master/lib/QuoteBot.py) | `.quote` | Add, remove, access your quotes. | 
 | [`ReplyBot`](https://github.com/PapoutsoglouE/TS3_PyBot/blob/master/lib/ReplyBot.py) | many | Reply to certain keywords. |
 | [`BenisBot`](https://github.com/PapoutsoglouE/TS3_PyBot/blob/master/lib/BenisBot.py) | `.benis` | Benisify a phrase. |
+| [`ChoiceBot`](https://github.com/PapoutsoglouE/TS3_PyBot/blob/master/lib/ChoiceBot.py) | `.choice` | Choose: a, b, c... |
 
 
