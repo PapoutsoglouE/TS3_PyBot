@@ -55,7 +55,7 @@ class Bot:
             given message event. Priority can be defined in the settings file:
             scripts higher on the list have higher priority. """
         for s in self.scripts:
-            if s.react(event, self.tsconn):
+            if s.react(event, self.tsconn): # todo: pass settings + channel
                 return
 
 
