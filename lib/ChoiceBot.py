@@ -23,8 +23,8 @@ class ChoiceBot(AbstractScript):
             
             if m[:8].lstrip().lower() == self.trigger + " ":
                 optstring = m[8:].split(",")
-                result = "[b]ChoiceBot:[/b]" + random.choice(optstring)
+                result = "[b]ChoiceBot:[/b] " + random.choice(optstring).strip()
                 conn.sendtextmessage(targetmode=2, target=1,
-                                     msg=result.strip())
+                                     msg=result)
                 return True
         return False
