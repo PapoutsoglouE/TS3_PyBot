@@ -30,7 +30,7 @@ When the [`HelpBot`](https://github.com/PapoutsoglouE/TS3_PyBot/blob/master/lib/
 
 [`.help`](https://github.com/PapoutsoglouE/TS3_PyBot/blob/master/lib/HelpBot.py#L13): Displays a list of the all active scripts.
 
-[`.help <i>script_name</i>`](https://github.com/PapoutsoglouE/TS3_PyBot/blob/master/lib/HelpBot.py#L13): Displays more information about one script. (e.g. `.help helpbot`)
+[`.help <script_name>`](https://github.com/PapoutsoglouE/TS3_PyBot/blob/master/lib/HelpBot.py#L13): Displays more information about one script. (e.g. `.help helpbot`)
 
 The trigger word for each script is defined in its respective file, through the [`trigger`](https://github.com/PapoutsoglouE/TS3_PyBot/blob/master/lib/HelpBot.py#L9) variable.
 
