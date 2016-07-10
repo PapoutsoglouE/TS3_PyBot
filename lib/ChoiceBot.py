@@ -22,9 +22,6 @@ class ChoiceBot(AbstractScript):
             if event["invokername"] == settings["name"]: 
                 return False
 
-            if event["invokername"] == settings["name"]: 
-                return False
-
             m = event["msg"].strip()
             
             if m[:8].lstrip().lower() == self.trigger + " ":

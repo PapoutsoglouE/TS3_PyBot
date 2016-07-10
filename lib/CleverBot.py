@@ -9,7 +9,7 @@ import random
 class CleverBot(AbstractScript):
     name = "CleverBot"
     trigger = "gote"
-    p = 0.3
+    p = 0.01
     helpstring = """
     [b]CleverBot[/b]
     \tChat with Cleverbot.
