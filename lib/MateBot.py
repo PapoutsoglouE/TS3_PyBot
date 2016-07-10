@@ -18,12 +18,15 @@ class MateBot(AbstractScript):
         self.matepat = re.compile("m+a+te")
 
     
-    def react(self, event, conn):
+    def react(self, event, conn, settings):
         """ Return the answer to "mate". """
         if "msg" in event:
+            if event["invokername"] == settings["name"]: 
+                return False
+
             m = event["msg"].strip()
 
-            if event["invokername"] != "Gote" and self.matepat.match(m):
+            if self.matepat.match(m):
                 add_m = random.randrange(5)
                 add_a = random.randrange(1, 5)
                 ind_a = m.find("a")

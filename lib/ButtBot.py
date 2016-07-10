@@ -19,10 +19,13 @@ class ButtBot(AbstractScript):
     """
 
 
-    def react(self, event, conn):
+    def react(self, event, conn, settings):
         """ Act. True if there is a message to send,
         False otherwise, followed by the actual string. """
         if "msg" in event:
+            if event["invokername"] == settings["name"]: 
+                return False
+
             m = event["msg"].strip()
             word = m.split()
             x = random.random()

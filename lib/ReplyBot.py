@@ -25,15 +25,18 @@ class ReplyBot(AbstractScript):
         "D:": {"reply": [r"C:"], "p": 1},
         "hi5": {"reply": [r"(。^_・)ノ"], "p": 1},
         "contract": {"reply": [r"／人◕ ‿‿ ◕人＼"], "p": 0.9},
-        "<3": {"reply": [r"</3", r"< 3"], "p": -0.8},
-        ":3": {"reply": [r":|", r">: 3"], "p": -0.7}
+        "<3": {"reply": [r"</3", r"<3"], "p": -0.8},
+        ":3": {"reply": [r":|", r">:3"], "p": -0.7}
         #"": {"reply": [r""], "p": },
     }
 
 
-    def react(self, event, conn):
+    def react(self, event, conn, settings):
         """ Return the answer to the keyword. Maybe. """
         if "msg" in event:
+            if event["invokername"] == settings["name"]: 
+                return False
+
             m = event["msg"].lower()
             for k in list(self.replies.keys()):
                 if k in m:

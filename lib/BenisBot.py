@@ -16,9 +16,13 @@ class BenisBot(AbstractScript):
     """
 
 
-    def react(self, event, conn):
+    def react(self, event, conn, settings):
         """ Return the benisified sentence. """
+        
         if "msg" in event:
+            if event["invokername"] == settings["name"]: 
+                return False
+
             m = event["msg"].strip()
             parts = m.split()
             if parts[0].lower() == self.trigger:

@@ -35,10 +35,13 @@ class QuoteBot(AbstractScript):
                 json.dump({}, f)
 
 
-    def react(self, event, conn):
+    def react(self, event, conn, settings):
         """ Act. False if there is no message to send,
         string message otherwise. """
         if "msg" in event:
+            if event["invokername"] == settings["name"]: 
+                return False
+
             m = event["msg"]
 
             if m[:6].lstrip().lower() == self.trigger:

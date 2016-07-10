@@ -16,9 +16,15 @@ class ChoiceBot(AbstractScript):
     """
 
 
-    def react(self, event, conn):
+    def react(self, event, conn, settings):
         """ Make a choice. """
         if "msg" in event:
+            if event["invokername"] == settings["name"]: 
+                return False
+
+            if event["invokername"] == settings["name"]: 
+                return False
+
             m = event["msg"].strip()
             
             if m[:8].lstrip().lower() == self.trigger + " ":

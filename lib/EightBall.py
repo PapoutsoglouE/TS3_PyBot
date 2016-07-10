@@ -39,9 +39,12 @@ class EightBall(AbstractScript):
     ]
 
 
-    def react(self, event, conn):
+    def react(self, event, conn, settings):
         """ Return the answer of the 8ball. """
         if "msg" in event:
+            if event["invokername"] == settings["name"]: 
+                return False
+
             m = event["msg"]
             if m[:7].lstrip().lower() == self.trigger + " ":
                 result = random.choice(self.replies)

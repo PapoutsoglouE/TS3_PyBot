@@ -20,9 +20,12 @@ class DieBot(AbstractScript):
     """
 
 
-    def react(self, event, conn):
+    def react(self, event, conn, settings):
         """ Roll dice. """
         if "msg" in event:
+            if event["invokername"] == settings["name"]: 
+                return False
+
             m = event["msg"].strip()
             parts = m.split()
             dice = 1
